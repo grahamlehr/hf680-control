@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#113b57" />
+    <meta name="description" content="A mobile guide to Honeywell HF680 scanner configuration codes." />
+    <title>HF680 Code Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#results">Skip to configuration codes</a>
+    <header class="site-header">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">▥</span><span>HF680 Code Finder</span></div>
+      <a class="source-link" href="assets/HF680-user-guide.pdf" target="_blank" rel="noreferrer">Full guide</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Honeywell HF680 second generation</p>
+        <h1 id="page-title">Find the code you need. Scan it from this screen.</h1>
+        <p class="lede">Search a setting or choose what you want to configure. Each result opens the original high-resolution programming barcode from the HF680 user guide.</p>
+        <label class="search-wrap" for="code-search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="code-search" type="search" autocomplete="off" placeholder="Try “USB”, “QR”, “suffix”, “reset”..." />
+        </label>
+      </section>
+
+      <section class="quick-start" aria-labelledby="quick-start-title">
+        <div class="section-heading">
+          <p class="eyebrow">Start here</p>
+          <h2 id="quick-start-title">Most common setup</h2>
+        </div>
+        <ol class="steps">
+          <li><span>1</span><p><strong>Check the model.</strong> This guide is for an HF680 whose part number includes <code>-R</code>.</p></li>
+          <li><span>2</span><p><strong>Choose the host interface.</strong> USB PC Keyboard is the factory default. Pick another interface only if your computer, till, or software needs it.</p></li>
+          <li><span>3</span><p><strong>Scan the chosen code.</strong> For Plug and Play interface codes, power-cycle the host afterwards.</p></li>
+        </ol>
+      </section>
+
+      <section class="chips-section" aria-labelledby="browse-title">
+        <div class="section-heading">
+          <p class="eyebrow">Browse</p>
+          <h2 id="browse-title">What are you changing?</h2>
+        </div>
+        <div id="category-chips" class="chips" aria-label="Configuration categories"></div>
+      </section>
+
+      <section id="results" class="results" aria-live="polite" aria-labelledby="results-title">
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">Code library</p>
+            <h2 id="results-title">Recommended codes</h2>
+          </div>
+          <p id="result-count" class="result-count"></p>
+        </div>
+        <div id="results-grid" class="results-grid"></div>
+      </section>
+
+      <details class="all-pages">
+        <summary>Browse every programming page</summary>
+        <p>The complete configuration section is available below. Use this when you know the guide page or need a less common setting.</p>
+        <div id="page-library" class="page-library"></div>
+      </details>
+
+      <aside class="caution" aria-labelledby="caution-title">
+        <span aria-hidden="true">!</span>
+        <div>
+          <h2 id="caution-title">Before you scan</h2>
+          <p>These are programming commands, not product barcodes. Scan one setting at a time, keep the phone bright and steady, and avoid factory reset unless you intend to remove custom settings.</p>
+        </div>
+      </aside>
+    </main>
+
+    <dialog id="code-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-topbar">
+        <div>
+          <p id="dialog-category" class="eyebrow"></p>
+          <h2 id="dialog-title"></h2>
+        </div>
+        <button id="close-dialog" class="icon-button" type="button" aria-label="Close code viewer">×</button>
+      </div>
+      <p id="dialog-description" class="dialog-description"></p>
+      <div class="scan-note"><span aria-hidden="true">⌁</span><span>Turn your iPhone brightness up, then hold the scanner about 15 to 25 cm from the code. Tap a code to make it full screen.</span></div>
+      <div id="code-images" class="code-images"></div>
+      <div class="dialog-footer">
+        <span id="page-reference"></span>
+        <a id="guide-link" href="assets/HF680-user-guide.pdf" target="_blank" rel="noreferrer">Open source guide</a>
+      </div>
+    </dialog>
+
+    <dialog id="image-dialog" aria-label="Enlarged programming guide page">
+      <button id="close-image-dialog" class="icon-button image-close" type="button" aria-label="Close enlarged page">×</button>
+      <img id="enlarged-image" alt="High-resolution HF680 programming guide page" />
+    </dialog>
+
+    <footer>Built from Honeywell’s <cite>HF680 Series User Guide</cite>, revision 2021. Check the full guide before changing advanced settings.</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
